@@ -14,11 +14,13 @@ function App() {
   // El uso de hooks/state debemos colocarlo antes del return y tampoco dentro d eun if
   const [cantidad, setCantidad] = useState(10000); // Definimos la varibale de un arreglo (destructurin de arreglos). Dento colocaremos el nombre que nosotros desearamos, en este caso se llamada cantidad, el segundo valor es la función que va a modificar el state "setCantidad"
   // useState() => dentro d elos parentesis colocaremos el valor inicial
-  // Para modificar el valor, debemos utilizar el setCantidad
+  const [meses, setMeses] = useState(3)
+
 
   // handle =? se nombra por convencion de react, que es una funcion asociada a un evento
   function handleChange(e) {
     // console.log(+e.target.value); // con el signo +, transformamos a enteros
+    // Para modificar el valor, debemos utilizar el setCantidad
     setCantidad(+e.target.value);
   }
 
@@ -57,12 +59,12 @@ function App() {
       <Header />
 
       <div className="flex justify-between my-6">
-        
-        <Button 
+
+        <Button
           operador='-' // es el nombre del prop
           fn={handleClickDecremento}
         />
-        <Button 
+        <Button
           operador='+'
           fn={handleClickIncremento}
         />
@@ -84,8 +86,34 @@ function App() {
       />
 
       <p className="text-center my-10 text-5xl font-extrabold text-indigo-600">
-        { formatearDinero(cantidad)}
+        {formatearDinero(cantidad)}
       </p>
+
+      <h2 className="text-2xl font-extrabold text-gray-500 text-center">
+        Elige un <span className="text-indigo-600">Plazo</span> a apgar
+      </h2>
+
+      <select
+        className="mt-5 w-full p-2 bg-white border-gray-300 rounded-lg text-center text-xl font-bold text-gray-500"
+        value={meses}
+        onChange={e => setMeses(+e.target.value)}
+      >
+        <option value={3}>3 Meses</option>
+        <option value={6}>6 Meses</option>
+        <option value={12}>12 Meses</option>
+        <option value={24}>24 Meses</option>
+      </select>
+
+      <div className="my-5 space-y-3 bg-gray-50 p-5">
+        <h2 className="text-2xl font-extrabold text-gray-500 text-center">
+          Resumen <span className="text-indigo-600">de pagos</span>
+        </h2>
+
+        <p className="text-xl text-gray-500 text-center font-bold"> {meses} Meses</p>
+        <p className="text-xl text-gray-500 text-center font-bold"> Total a pagar</p>
+        <p className="text-xl text-gray-500 text-center font-bold"> Pagos mensuales</p>
+      </div>
+
     </div>
   )
 }
