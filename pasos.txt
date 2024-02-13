@@ -1,0 +1,7 @@
+Para crear un proyecto en react debes ejecutar el siguiente comando
+    [npm create vite@latest]
+    Este comando nos permitira crear nuestro proyecto de vite con react, OJO, que debemos seleccionar de que tipo sera nuestro proyecto si sera react, vue, vanilla, etc, ademas con que lenguaje se trabajara si con js o ts.
+    Nota: Si nos pide actualizar un una version de algun paquete le daremos a que si/y
+
+Despues de instalarlo, accederemos a la carpeta del proyecto y correremos el sigueinte coamndo que instalara las dependencias de React+vite
+    [npm install]
