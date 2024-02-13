@@ -5,3 +5,26 @@ Para crear un proyecto en react debes ejecutar el siguiente comando
 
 Despues de instalarlo, accederemos a la carpeta del proyecto y correremos el sigueinte coamndo que instalara las dependencias de React+vite
     [npm install]
+
+Para instalar Talwin Css, debemos ejecutar el siguiente comando
+    [npm install -D tailwindcss postcss autoprefixer]
+
+    Despues para iniciar y poder usar talwin, colocaremos el siguiente comando
+        [npx tailwindcss init -p]
+        Este archivo creara dps archivos postcss.config.cjs y tailwind.config.cjs
+        
+        tailwind.config.cjs => en este archivo colocaremos donde se encuentran los arhcivos que tendran css
+
+--------------------------------------------------------
+******************************JSX***********************
+--------------------------------------------------------
+Nos permite combinar js y html
+Todos los elementos del html se pueden usar en el returno, PERO no todas las funciones de js se pueden utilizar
+
+
+--------------------------------------------------------
+**********************COMPONENTES***********************
+--------------------------------------------------------
+Permite dividir el cdigo para poder reutilizarlos en otros archivos
+Los componentes usan la extencion .js o .jsx y se importan con import de JS
+Ademas se puede pasar información de un componente a otro usando Props
