@@ -17,6 +17,11 @@ function App() {
 
       {/* Importamos nuestro componneten, tanto en la paete superior del archivo con import y en el codigo que s evaya a usar */}
       <Header />
+
+      <input 
+        type="range"
+        className="w-full h-6 bg-gray-200 accent-lime-500 hover:accent-lime-600"
+      />
     </div>
   )
 }
