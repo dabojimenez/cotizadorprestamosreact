@@ -28,3 +28,21 @@ Todos los elementos del html se pueden usar en el returno, PERO no todas las fun
 Permite dividir el cdigo para poder reutilizarlos en otros archivos
 Los componentes usan la extencion .js o .jsx y se importan con import de JS
 Ademas se puede pasar información de un componente a otro usando Props
+
+--------------------------------------------------------
+**********************STATE*****************************
+--------------------------------------------------------
+El state es la fuente de la verdad (source of truth) de la app
+Un listado de clientes, un carrito de compras lleno o vacio, un usuario autenticado es lo que determina cual es el estado o state de tu app
+Se importa useState para el uso, y al usarlo este nos devuelve 2 valores: state y la funcion que modifica el state
+
+Administracion
+El state no se debe modificar directamente; pero se debe utilizar la función que lo modifica
+En un equipo de trabjo podemos usar un state global como Context, Zustand, Rocil o Redux
+
+--------------------------------------------------------
+**********************EVENTOS*****************************
+--------------------------------------------------------
+Todas las aplicaciones requieren eventos, el click, lleanr el formulario, submit, etc
+Los eventos en react incian con la palabra (on) seguida del evento, ejemplo: onClick, onChange, onSubmit, etc
+Estos eventos se agregan via atributo en el codigo html
