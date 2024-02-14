@@ -2,6 +2,7 @@
 import Button from "./components/Button";
 import Header from "./components/Header"
 import { useState } from "react";
+import { formatearDinero } from "./helpers";
 
 function App() {
   // Siempre la logica o valores de js, se colocan antes del return
@@ -83,7 +84,7 @@ function App() {
       />
 
       <p className="text-center my-10 text-5xl font-extrabold text-indigo-600">
-        {cantidad}
+        { formatearDinero(cantidad)}
       </p>
     </div>
   )
