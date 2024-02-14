@@ -1,8 +1,8 @@
 // importamos los componentes
 import Button from "./components/Button";
 import Header from "./components/Header"
-import { useState } from "react";
-import { formatearDinero } from "./helpers";
+import { useState, useEffect } from "react";
+import { calcularTotalPagar, formatearDinero } from "./helpers";
 
 function App() {
   // Siempre la logica o valores de js, se colocan antes del return
@@ -14,8 +14,20 @@ function App() {
   // El uso de hooks/state debemos colocarlo antes del return y tampoco dentro d eun if
   const [cantidad, setCantidad] = useState(10000); // Definimos la varibale de un arreglo (destructurin de arreglos). Dento colocaremos el nombre que nosotros desearamos, en este caso se llamada cantidad, el segundo valor es la función que va a modificar el state "setCantidad"
   // useState() => dentro d elos parentesis colocaremos el valor inicial
-  const [meses, setMeses] = useState(3)
+  const [meses, setMeses] = useState(3);
+  const [total, setTotal] = useState(0);
+  const [pago, setPago] = useState(0);
 
+  useEffect( () => {
+    const resultadoTotalPagar = calcularTotalPagar(cantidad, meses);
+    setTotal(resultadoTotalPagar);
+    
+  }, [cantidad, meses]); // despues de las lalves, se le pasa un arreglo de dependencias. Si se lo pasa vacio, se ejecutara una vez, en relaidad lo que se le pasa van a ser los componentes que va a escuchar y funcionan como disparadores para ejecutar el codigo que este dentro de useEffect
+
+  useEffect( () => {
+    // Calcular el pago mensual
+    setPago(total / meses)
+  }, [total]);
 
   // handle =? se nombra por convencion de react, que es una funcion asociada a un evento
   function handleChange(e) {
@@ -110,8 +122,8 @@ function App() {
         </h2>
 
         <p className="text-xl text-gray-500 text-center font-bold"> {meses} Meses</p>
-        <p className="text-xl text-gray-500 text-center font-bold"> Total a pagar</p>
-        <p className="text-xl text-gray-500 text-center font-bold"> Pagos mensuales</p>
+        <p className="text-xl text-gray-500 text-center font-bold">{formatearDinero(total)} Total a pagar</p>
+        <p className="text-xl text-gray-500 text-center font-bold"> {formatearDinero(pago)} Pagos mensuales</p>
       </div>
 
     </div>

@@ -41,8 +41,21 @@ El state no se debe modificar directamente; pero se debe utilizar la función qu
 En un equipo de trabjo podemos usar un state global como Context, Zustand, Rocil o Redux
 
 --------------------------------------------------------
-**********************EVENTOS*****************************
+**********************EVENTOS***************************
 --------------------------------------------------------
 Todas las aplicaciones requieren eventos, el click, lleanr el formulario, submit, etc
 Los eventos en react incian con la palabra (on) seguida del evento, ejemplo: onClick, onChange, onSubmit, etc
 Estos eventos se agregan via atributo en el codigo html
+
+--------------------------------------------------------
+**********************useEffect*************************
+--------------------------------------------------------
+Es un hook que se ejecuta una vez que el componente esta listo y toma un array de dependencias.
+En su lostado de dependencias se le puede pasar un state para escuchar los cambios que ocurren en ese state; en caso de que el state se actualice, useEffect se va a ejecutar nuevamente.
+
+--------------------------------------------------------
+**********************Deploy****************************
+--------------------------------------------------------
+Para enviar a producción, es necesario correr el siguiente comando
+    [npm run build]
+    Este comando creara una carpeta llamada dist, la cual podrmeos publicar en el servidor
