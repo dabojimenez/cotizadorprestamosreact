@@ -1,4 +1,5 @@
 // importamos los componentes
+import Button from "./components/Button";
 import Header from "./components/Header"
 import { useState } from "react";
 
@@ -20,6 +21,24 @@ function App() {
     setCantidad(+e.target.value);
   }
 
+  function handleClickDecremento() {
+    const valor = cantidad - STEP;
+    if (valor < MIN) {
+      alert('Cantidad no valida');
+      return;
+    }
+    setCantidad(valor);
+  }
+
+  function handleClickIncremento() {
+    const valor = cantidad + STEP;
+    if (valor > MAX) {
+      alert('Cantidad no valida');
+      return;
+    }
+    setCantidad(valor);
+  }
+
   // Variables que no se modifican
   const MIN = 0;
   const MAX = 20000;
@@ -35,6 +54,19 @@ function App() {
 
       {/* Importamos nuestro componneten, tanto en la paete superior del archivo con import y en el codigo que s evaya a usar */}
       <Header />
+
+      <div className="flex justify-between my-6">
+        
+        <Button 
+          operador='-' // es el nombre del prop
+          fn={handleClickDecremento}
+        />
+        <Button 
+          operador='+'
+          fn={handleClickIncremento}
+        />
+
+      </div>
 
       <input
         type="range"
